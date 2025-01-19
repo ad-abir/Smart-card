@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Verification Panel</title>
+        <link rel="stylesheet" href="assets/styles/email_verification.css">
+    </head>
+    <body>
+        <div class="container">
+            <h1>Email Verification</h1>
+            <p class="email-display">Verifying email for: <span id="userEmail">user@example.com</span></p>
+            
+            <form id="verificationForm" onsubmit="return false;">
+              <div class="form-group">
+                <label for="verificationCode">Enter Verification Code</label>
+                <input 
+                  type="text"
+                  id="verificationCode"
+                  placeholder="Enter the code sent to your email"
+                  maxlength="6"
+                  autocomplete="off"
+                >
+                <p class="error-message">Invalid verification code. Please try again.</p>
+              </div>
+              
+              <button type="submit">Verify</button>
+              <a href="#" class="resend-link">Resend verification code</a>
+            </form>
+          </div>
+    </body>
+</html>
