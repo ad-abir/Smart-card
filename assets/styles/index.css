@@ -66,6 +66,31 @@ body {
     box-shadow: 0 0 0 1px #000;
 }
 
+.password-field {
+    position: relative;
+}
+
+.password-toggle {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    background: none;
+    cursor: pointer;
+    padding: 0;
+    color: #666;
+}
+
+.password-toggle:focus {
+    outline: none;
+    color: #000;
+}
+
+.password-field input {
+    padding-right: 40px;
+}
+
 .btn {
     width: 100%;
     padding: 0.75rem;
