@@ -10,7 +10,7 @@
     --primary-color: #2563eb;
     --secondary-color: #64748b;
     --background-color: #f1f5f9;
-    --sidebar-color: #1e293b;
+    --sidebar-color: black;
     --white: #ffffff;
     --text-primary: #1e293b;
     --text-secondary: #64748b;
@@ -45,11 +45,11 @@ body {
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.logo img {
+/* .logo img {
     width: 40px;
     height: 40px;
     border-radius: 8px;
-}
+} */
 
 .nav-links {
     list-style: none;
