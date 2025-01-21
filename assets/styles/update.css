@@ -1,0 +1,292 @@
+/* Global Styles - Keep existing styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Root variables - Keep existing variables */
+:root {
+    --primary-color: #2563eb;
+    --secondary-color: #64748b;
+    --background-color: #f1f5f9;
+    --sidebar-color: black;
+    --white: #ffffff;
+    --text-primary: #1e293b;
+    --text-secondary: #64748b;
+    --success-color: #22c55e;
+    --danger-color: #ef4444;
+    --border-color: #e2e8f0;
+}
+
+/* Updated Container and Layout Styles */
+body {
+    background-color: var(--background-color);
+    overflow: hidden; /* Prevent body scrolling */
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+    position: relative;
+}
+
+/* Updated Sidebar Styles */
+.sidebar {
+    width: 250px;
+    background-color: var(--sidebar-color);
+    color: var(--white);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    overflow-y: auto; /* In case the nav items exceed viewport height */
+}
+
+/* Updated Update Container Styles */
+.update-container {
+    flex: 1;
+    margin-left: 250px; /* Match sidebar width */
+    padding: 30px;
+    height: 100vh;
+    overflow-y: auto; /* Enable scrolling for content */
+    background-color: var(--background-color);
+}
+
+/* Rest of the existing styles remain the same */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-links {
+    list-style: none;
+    margin-top: 30px;
+    flex-grow: 1;
+}
+
+.nav-links li {
+    margin-bottom: 10px;
+}
+
+.nav-links a {
+    color: var(--white);
+    text-decoration: none;
+    padding: 12px 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+}
+
+.nav-links a:hover,
+.nav-links li.active a {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.nav-links i {
+    width: 20px;
+}
+
+.logout {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
+}
+
+.logout a {
+    color: var(--white);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 15px;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+}
+
+.logout a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Form Card Styles */
+.form-card {
+    background-color: var(--white);
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 24px;
+    overflow: hidden;
+}
+
+.card-header {
+    background-color: var(--background-color);
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.card-header i {
+    font-size: 24px;
+    color: var(--primary-color);
+}
+
+.card-header h2 {
+    font-size: 18px;
+    margin: 0;
+    color: var(--text-primary);
+}
+
+/* Update Form Styles */
+.form-fields {
+    padding: 24px;
+}
+
+.field-group {
+    margin-bottom: 20px;
+}
+
+.field-group:last-child {
+    margin-bottom: 0;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.required {
+    color: var(--danger-color);
+    margin-left: 4px;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+input[type="url"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+/* Photo Upload Styles */
+.photo-upload {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+#photoPreview {
+    width: 150px;
+    height: 150px;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+.upload-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+/* Social Media Styles */
+.social-fields label i {
+    width: 20px;
+    margin-right: 8px;
+}
+
+.review-links {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+/* Form Actions */
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 32px;
+}
+
+/* Button Styles */
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.3s;
+}
+
+.btn.primary {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+.btn.secondary {
+    background-color: var(--secondary-color);
+    color: var(--white);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .sidebar {
+        position: static;
+        width: 100%;
+        height: auto;
+    }
+
+    .update-container {
+        margin-left: 0;
+        height: auto;
+    }
+
+    .container {
+        flex-direction: column;
+    }
+
+    .photo-upload {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .review-links {
+        grid-template-columns: 1fr;
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
