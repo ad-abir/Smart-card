@@ -127,6 +127,8 @@ if(isset($_POST['register_btn'])) {
     $confirm_password = $_POST['confirm_password'];
     $verify_token = rand(100000, 999999);
 
+    date_default_timezone_set('Asia/Dhaka'); // Example: 'Asia/Dhaka' or 'UTC'
+
     // Add expiration time (2 minutes from now)
     $token_expires_at = date('Y-m-d H:i:s', strtotime('+2 minutes'));
     
