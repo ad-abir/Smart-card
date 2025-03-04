@@ -110,6 +110,8 @@ function sendemail_verify($name, $email, $verify_token) {
 
 if(isset($_POST['resend']) && isset($_SESSION['email'])) {
     $email = $_SESSION['email'];
+
+    date_default_timezone_set('Asia/Dhaka'); // Example: 'Asia/Dhaka' or 'UTC'
     
     // Generate new code and expiration
     $new_verify_token = rand(100000, 999999);
