@@ -4,7 +4,8 @@ $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 $routes = [
     '/' => 'controllers/index.php',
     '/signin' => 'controllers/signin.php',
-    '/email_verification' => 'controllers/email_verification.php'
+    '/email_verification' => 'controllers/email_verification.php',
+    '/dashboard' => 'controllers/dashboard.php'
 ];
 
 function routeToController($uri, $routes) {
