@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Update Profile - Smart Card Dashboard</title>
-    <link rel="stylesheet" href="assets/styles/update.css">
+    <link rel="stylesheet" href="../assets/styles/update.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
@@ -33,7 +33,7 @@
                                     </div>
                                 </div>
                                 <div class="upload-controls">
-                                    <input type="file" id="photo" name="photo" accept="image/png, image/jpeg, image/jpg" class="hidden-input">
+                                    <input type="file" id="photo" name="photo" accept="image/png, image/jpeg, image/jpg," class="hidden-input">
                                     <label for="photo" class="btn secondary">
                                         <i class="fas fa-upload"></i> Choose Photo
                                     </label>
@@ -46,12 +46,16 @@
                             <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required>
                         </div>
                         <div class="field-group">
-                            <label for="jobTitle">Job Title <span class="required">*</span></label>
-                            <input type="text" id="jobTitle" name="jobTitle" placeholder="Enter your job title" required>
+                            <label for="jobTitle">Job Title </label>
+                            <input type="text" id="jobTitle" name="jobTitle" placeholder="Enter your job title">
                         </div>
                         <div class="field-group">
-                            <label for="companyName">Company Name <span class="required">*</span></label>
-                            <input type="text" id="companyName" name="companyName" placeholder="Enter company name" required>
+                            <label for="jobTitle">Bio </label>
+                            <input type="text" id="bio" name="bio" placeholder="Enter your bio">
+                        </div>
+                        <div class="field-group">
+                            <label for="companyName">Company Name </label>
+                            <input type="text" id="companyName" name="companyName" placeholder="Enter company name">
                         </div>
                     </div>
                 </div>
@@ -64,20 +68,40 @@
                     </div>
                     <div class="form-fields">
                         <div class="field-group">
-                            <label for="phone">Phone Number <span class="required">*</span></label>
+                            <label for="phone"><i class="fas fa-phone"></i> Phone Number <span class="required">*</span></label>
                             <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
                         </div>
                         <div class="field-group">
-                            <label for="email">Email Address <span class="required">*</span></label>
+                            <label for="whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp Number </label>
+                            <input type="tel" id="whatsapp" name="whatsapp" placeholder="Enter your WhatsApp number">
+                        </div>
+                        <div class="field-group">
+                            <label for="email"><i class="fas fa-envelope"></i> Email Address <span class="required">*</span></label>
                             <input type="email" id="email" name="email" placeholder="Enter your email address" required>
                         </div>
                         <div class="field-group">
-                            <label for="address">Address</label>
-                            <textarea id="address" name="address" placeholder="Enter your address" rows="3"></textarea>
+                            <label for="homeAddress"><i class="fas fa-home"></i> Home Address <span class="required">*</span></label>
+                            <textarea id="homeAddress" name="homeAddress" placeholder="Enter your home address" rows="3" required></textarea>
                         </div>
                         <div class="field-group">
-                            <label for="website">Website</label>
-                            <input type="url" id="website" name="website" placeholder="Enter your website URL">
+                            <label for="homeMapLink"><i class="fas fa-map-marker-alt"></i> Home Address Google Maps Link</label>
+                            <input type="url" id="homeMapLink" name="homeMapLink" placeholder="Enter Google Maps link for your home address">
+                        </div>
+                        <div class="field-group">
+                            <label for="officeAddress"><i class="fas fa-building"></i> Office Address</label>
+                            <textarea id="officeAddress" name="officeAddress" placeholder="Enter your office address" rows="3"></textarea>
+                        </div>
+                        <div class="field-group">
+                            <label for="officeMapLink"><i class="fas fa-map-marker-alt"></i> Office Address Google Maps Link</label>
+                            <input type="url" id="officeMapLink" name="officeMapLink" placeholder="Enter Google Maps link for your office address" disabled>
+                        </div>
+                        <div class="field-group">
+                            <label for="officeWebsite"><i class="fas fa-globe"></i> Office Website</label>
+                            <input type="url" id="officeWebsite" name="officeWebsite" placeholder="Enter your office website URL">
+                        </div>
+                        <div class="field-group">
+                            <label for="personalWebsite"><i class="fas fa-user-tie"></i> Personal Website</label>
+                            <input type="url" id="personalWebsite" name="personalWebsite" placeholder="Enter your personal website URL">
                         </div>
                     </div>
                 </div>
@@ -104,6 +128,14 @@
                         <div class="field-group">
                             <label for="facebook"><i class="fab fa-facebook"></i> Facebook</label>
                             <input type="url" id="facebook" name="facebook" placeholder="Enter Facebook profile URL">
+                        </div>
+                        <div class="field-group">
+                            <label for="snapchat"><i class="fab fa-snapchat"></i> Snapchat</label>
+                            <input type="url" id="snapchat" name="snapchat" placeholder="Enter Snapchat profile URL">
+                        </div>
+                        <div class="field-group">
+                            <label for="youtube"><i class="fab fa-youtube"></i> YouTube</label>
+                            <input type="url" id="youtube" name="youtube" placeholder="Enter YouTube profile URL">
                         </div>
                     </div>
                 </div>
@@ -143,5 +175,17 @@
     </div>
 
     <script src="assets/js/image-preview.js"></script>
+    <script>
+        // Script to enable/disable Office Map Link based on Office Address input
+        document.getElementById('officeAddress').addEventListener('input', function() {
+            const officeMapLink = document.getElementById('officeMapLink');
+            if (this.value.trim() !== '') {
+                officeMapLink.disabled = false;
+            } else {
+                officeMapLink.disabled = true;
+                officeMapLink.value = ''; // Clear the field when disabled
+            }
+        });
+    </script>
 </body>
 </html>
