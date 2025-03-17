@@ -311,6 +311,27 @@ textarea:required:valid {
     border-left: 4px solid var(--success-color);
 }
 
+
+/* Add this to your update.css file */
+
+.error {
+    border: 1px solid #ff3333 !important;
+    background-color: #fff8f8;
+}
+
+.error-message {
+    color: #ff3333; /* This is already red, but I'm highlighting it */
+    font-size: 0.85rem;
+    margin-top: 5px;
+    display: block;
+    font-weight: 500; /* Making it slightly bolder */
+}
+
+.hidden-input {
+    display: none;
+}
+
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .sidebar {
