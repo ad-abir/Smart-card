@@ -5,7 +5,9 @@ $routes = [
     '/' => 'controllers/index.php',
     '/signin' => 'controllers/signin.php',
     '/email_verification' => 'controllers/email_verification.php',
-    '/dashboard' => 'controllers/dashboard.php'
+    '/dashboard' => 'controllers/dashboard.php',
+    '/forgot_pass' => 'controllers/forgot_pass.php',
+    '/update' => 'controllers/update.php'
 ];
 
 function routeToController($uri, $routes) {
