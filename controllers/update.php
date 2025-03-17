@@ -6,6 +6,8 @@
     <title>Update Profile - Smart Card Dashboard</title>
     <link rel="stylesheet" href="../assets/styles/update.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+    <script src="../assets/js/update-form-validation.js" defer></script>
 </head>
 <body>
     <div class="container">
@@ -151,7 +153,7 @@
                             <label for="portfolio">Portfolio/Work Samples</label>
                             <input type="url" id="portfolio" name="portfolio" placeholder="Enter portfolio URL">
                         </div>
-                        <div class="field-group">
+                        <!-- <div class="field-group">
                             <label for="calendly">Calendly Link</label>
                             <input type="url" id="calendly" name="calendly" placeholder="Enter Calendly URL">
                         </div>
@@ -161,7 +163,7 @@
                                 <input type="url" name="google_reviews" placeholder="Google Reviews URL">
                                 <input type="url" name="trustpilot" placeholder="Trustpilot URL">
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
 
