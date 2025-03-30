@@ -39,18 +39,31 @@ if (isset($_SESSION['email'])) {
                     $verification_code = trim($_POST['verification_code']);
 
                     if ($verification_code == $verify_token) {
+                        // Define placeholder values for required fields
+                        $phone = "Not provided"; // Placeholder for phone
+                        $home_address = "Not provided"; // Placeholder for home_address
+
                         // Update user's verification status
                         $update_query = "UPDATE user SET is_verified = 1, verify_token = NULL, token_expires_at = NULL WHERE email = ?";
                         $update_stmt = $con->prepare($update_query);
                         $update_stmt->bind_param("s", $email);
 
                         // Insert into regis_users
-                        $insert_query = "INSERT INTO regis_users (`id`, `name`, `email`, `password`) VALUES (?, ?, ?, ?)";
-                        $insert_stmt = $con->prepare($insert_query);
-                        $insert_stmt->bind_param("isss", $id, $name, $email, $pass);
-                        $insert_result = $insert_stmt->execute();
+                        $insert_regis_query = "INSERT INTO regis_users (`id`, `name`, `email`, `password`) VALUES (?, ?, ?, ?)";
+                        $insert_regis_stmt = $con->prepare($insert_regis_query);
+                        $insert_regis_stmt->bind_param("isss", $id, $name, $email, $pass);
 
-                        if ($update_stmt->execute() && $insert_result) { // Check both operations
+                        // Insert into user_info with all required fields
+                        $insert_info_query = "INSERT INTO user_info (`id`, `full_name`, `phone`, `email`, `home_address`) VALUES (?, ?, ?, ?, ?)";
+                        $insert_info_stmt = $con->prepare($insert_info_query);
+                        $insert_info_stmt->bind_param("issss", $id, $name, $phone, $email, $home_address);
+
+                        // Execute all statements and check success
+                        $update_result = $update_stmt->execute();
+                        $insert_regis_result = $insert_regis_stmt->execute();
+                        $insert_info_result = $insert_info_stmt->execute();
+
+                        if ($update_result && $insert_regis_result && $insert_info_result) {
                             // Clear verification-related session variables
                             unset($_SESSION['email']);
                             unset($_SESSION['verify_token']);
@@ -60,7 +73,7 @@ if (isset($_SESSION['email'])) {
                             header("Location: /signin");
                             exit();
                         } else {
-                            $_SESSION['error'] = "Error updating verification status or inserting into regis_users.";
+                            $_SESSION['error'] = "Error updating verification status or inserting into tables.";
                             header("Location: /email_verification");
                             exit();
                         }
@@ -86,6 +99,7 @@ if (isset($_SESSION['email'])) {
 // Close statements and connection
 $stmt->close();
 if (isset($update_stmt)) $update_stmt->close();
-if (isset($insert_stmt)) $insert_stmt->close();
+if (isset($insert_regis_stmt)) $insert_regis_stmt->close();
+if (isset($insert_info_stmt)) $insert_info_stmt->close();
 $con->close();
 ?>
