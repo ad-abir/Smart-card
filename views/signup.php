@@ -6,10 +6,10 @@
     <title>Registration Panel</title>
     <link rel="stylesheet" href="../assets/styles/index.css">
 
-    <script src="assets/js/password-utils.js"></script>
-    <script src="assets/js/password-validation.js"></script>
-    <script src="assets/js/email-validation.js" defer></script>
-    <script src="assets/js/form-validation.js" defer></script>
+    <script src="../assets/js/password-utils.js"></script>
+    <script src="../assets/js/password-validation.js"></script>
+    <script src="../assets/js/email-validation.js" defer></script>
+    <script src="../assets/js/form-validation.js" defer></script>
 </head>
 <body>
     <div class="container">
@@ -18,7 +18,7 @@
             <!-- <p>Start your 30-day free trial. No credit card required.</p> -->
         </div>
 
-        <form action="../code.php" method="POST">
+        <form action="../services/code.php" method="POST">
             <div class="form-group">
                 <label for="fullname">Full Name</label>
                 <input type="text" id="fullname" name="fullname" placeholder="John Doe" required>
