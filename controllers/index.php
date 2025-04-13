@@ -7,4 +7,4 @@
 // Add any signup-related logic here if needed (e.g., pre-processing form data).
 
 // Load the view
-require '../views/signup.php';
+require BASE_PATH . '/views/signup.php';
