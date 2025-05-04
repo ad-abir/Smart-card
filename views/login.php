@@ -5,16 +5,24 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Signin Panel</title>
         <link rel="stylesheet" href="../assets/styles/signin.css">
-        <script src="../assets/js/password-utils.js"></script>
-        <script src="../assets/js/email-validation.js" defer></script>
-        <script src="../assets/js/form-validation.js" defer></script>
     </head>
     <body>
         <div class="container">
             <h1 class="title">Sign In</h1>
+            
             <?php if (isset($error)): ?>
-                <p style="color: red;"><?= htmlspecialchars($error) ?></p>
+                <div class="notification error" style="display: block; position: relative; transform: none; left: 0; margin-bottom: 20px;">
+                    <?= htmlspecialchars($error) ?>
+                </div>
             <?php endif; ?>
+            
+            <?php if (isset($_SESSION['success'])): ?>
+                <div class="notification success" style="display: block; position: relative; transform: none; left: 0; margin-bottom: 20px;">
+                    <?= htmlspecialchars($_SESSION['success']) ?>
+                </div>
+                <?php unset($_SESSION['success']); ?>
+            <?php endif; ?>
+            
             <script src="https://accounts.google.com/gsi/client" async></script>
             <div id="g_id_onload"
                 data-client_id="YOUR_GOOGLE_CLIENT_ID"
@@ -32,7 +40,7 @@
             <div class="divider">
                 <span>or</span>
             </div>
-            <form id="authenticationForm" action="../services/signin_auth.php" method="POST">
+            <form id="authenticationForm" action="../services/auth_check.php" method="POST">
                 <div class="form-group">
                     <label for="email">Email Address</label>
                     <input type="email" id="email" name="email" placeholder="Enter your email" required>
@@ -49,7 +57,7 @@
                         </button>
                     </div>
                 </div>
-                <button type="submit" class="submit-btn">Sign In</button>
+                <button type="submit" class="submit-btn" id="submitBtn">Sign In</button>
                 <div class="links">
                     <a href="/forgot_pass">Forgot your password?</a>
                 </div>
@@ -58,5 +66,8 @@
                 </div>
             </form>
         </div>
+        
+        <script src="../assets/js/password-utils.js"></script>
+        <script src="../assets/js/form-validation.js"></script>
     </body>
 </html>
