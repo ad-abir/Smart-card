@@ -1,5 +1,7 @@
 <?php
-session_start(); // Start the session
+
+require_once __DIR__ . '/../services/session.php';
+startSession(); // Start the session
 
 // Check for and prepare error message from session
 $error = null;
