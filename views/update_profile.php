@@ -17,7 +17,7 @@
         <!-- Main Content -->
         <div class="update-container">
             <h1>Update Your Profile</h1>
-            <form class="update-form" action="update_profile.php" method="POST" enctype="multipart/form-data">
+            <form class="update-form" action="../services/update_pro.php" method="POST" enctype="multipart/form-data">
                 <!-- Basic Information Section -->
                 <div class="form-card">
                     <div class="card-header">
